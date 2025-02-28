@@ -1,9 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const {data:homepage} =  await useAsyncData(() =>queryCollection('webpages').first())
+</script>
 
 <template>
     <div>
-        <h1>Blog</h1>
-        <p>Here is a list of blog posts</p>
+       <ContentRenderer v-if="homepage" :value="homepage" />
+       <div v-else>Page non trouvé</div>
     </div>
 </template>
 
