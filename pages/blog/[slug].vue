@@ -1,13 +1,10 @@
 <script setup lang="ts">
-const { data: posts } = await useAsyncData("posts", () =>queryCollection("blog").all());
+const route= useRoute();
+const { data: post } = await useAsyncData("post", () => queryCollection("blog").path(route.path).first());
 </script>
-
 <template>
-  <UContainer>
-    <UBlogList>
-      <UBlogPost
-        v-for="(post,index) in posts"
-        :key="post.id"
+    <UBlogPost
+    v-if="post"
         :title="post.title"
         :description="post.description"
         :authors="post.auteurs"
@@ -15,12 +12,9 @@ const { data: posts } = await useAsyncData("posts", () =>queryCollection("blog")
         :date="formatDate(post.date)"
         :post="post"
         :badge="{...post.badge,variant:'outline'}"
-        :orientation="index % 2 === 0 ? 'vertical' : 'horizontal'"
         :to="post.path"
       >
       </UBlogPost>
-    </UBlogList>
-  </UContainer>
 </template>
 
 <style scoped></style>
