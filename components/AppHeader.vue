@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const navigation = inject<Ref<any[]>>('navigation', ref([]));
+const navigation = inject<Ref<[]>>('navigation', ref([]));
 const links = [{
   label: 'Home',
   icon: 'simple-icons:homeadvisor',

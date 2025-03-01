@@ -3,5 +3,8 @@ const {data:navigation} = await useAsyncData("navigation", () => queryCollection
 provide('navigation',navigation);
 </script>
 <template>
-  <NuxtLayout> <NuxtPage /> </NuxtLayout>
+  <NuxtLayout>
+    <NuxtPage />
+    <UNotifications/> 
+    </NuxtLayout>
 </template>
