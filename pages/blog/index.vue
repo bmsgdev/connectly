@@ -25,4 +25,3 @@ const {data:first_post} = await useAsyncData("first_post", () =>queryCollection(
   </UContainer>
 </template>
 
-<style scoped></style>

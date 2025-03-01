@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
-const navigation = inject<Ref<any[]>>('navigation', ref([]))
-
+const navigation = inject<Ref<any[]>>('navigation', ref([]));
 const links = [{
   label: 'Home',
   icon: 'simple-icons:homeadvisor',
@@ -16,9 +15,15 @@ const links = [{
 <template>
   <UHeader :links="links">
     <template #left>
-      <UIcon name="simple-icons:devdotto" class="h-6 w-auto shrink-0"/>
+      <NuxtLink to="/">
+        <UIcon name="simple-icons:devdotto" class="text-7xl shrink-0"/>
+      </NuxtLink>
+    </template>
+    <template #pannel>
+      <UNavigationTree :links="navigation" />
     </template>
     <template #right>
+      <UColorModeButton />
     </template>
   </UHeader>
 </template>
